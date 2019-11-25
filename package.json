@@ -1,9 +1,9 @@
 {
-  "name": "puwp-2019-layouts-new",
+  "name": "nodecg-mgsrng",
   "version": "1.0.0",
-  "description": "Power Up With Pride 2019 new format layouts using NodeCG + Speedcontrol",
+  "description": "Power Up With Pride 2019 new format layouts using NodeCG + Speedcontrol. Refactored for MGSR",
   "homepage": "https://layout.powerupwithpride.org",
-  "author": "DorkmasterFlek",
+  "author": "DorkmasterFlek, preciousroy",
   "dependencies": {
   },
   "nodecg": {
