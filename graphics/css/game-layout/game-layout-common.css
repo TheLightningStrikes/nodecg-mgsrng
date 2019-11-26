@@ -42,7 +42,7 @@ body {
 #donation-container {
     position: absolute;
     text-align: center;
-    background-color: var(--timer-background);
+    background-color: var(--header-background);
     color: var(--timer-color);
 }
 
@@ -54,7 +54,7 @@ body {
 #timer-label {
     position: absolute;
     text-align: center;
-    background-color: var(--timer-background);
+    background-color: var(--header-background);
     color: var(--timer-color);
     /* Hide timer label for most layouts. */
     display: none;
@@ -62,7 +62,7 @@ body {
 
 #timer {
     position: absolute;
-    background-color: var(--timer-background);
+    background-color: var(--sidebar-background);
     color: var(--timer-color);
 }
 
@@ -85,12 +85,12 @@ body {
 
 .runner-name {
     color: var(--text-color);
-    background-color: var(--text-background);
+    background-color: var(--header-background);
 }
 
 .pronouns {
     color: var(--timer-color);
-    background-color: var(--timer-background);
+    background-color: var(--header-background);
     word-wrap: break-word;
 }
 
