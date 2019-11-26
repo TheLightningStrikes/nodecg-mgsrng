@@ -27,4 +27,5 @@ body {
     --game-feed-chroma-key: #00ff00;
     --sidebar-background: #2f2f2f;
     --header-background: #3f3f3f;
+    --header-text-color: white;
 }

@@ -23,7 +23,7 @@ body {
     left: 0;
     width: var(--sidebar-width);
     height: 1080px;
-    font-size: 48px;
+    font-size: 28px;
     background-color: var(--sidebar-background);
 }
 
