@@ -85,7 +85,7 @@ body {
 }
 
 .runner-name {
-    color: var(--game-details-color);
+    color: var(--timer-color);
     background-color: var(--header-background);
 }
 
