@@ -16,7 +16,8 @@ body {
     --text-color: #4f4f4f;
     --text-background: white;
     --text-color-alt: #ff8200;
-    --text-background-alt: #502c69;
+    /* --text-background-alt: #502c69; */
+    --text-background-alt: #2f2f2f;
     --text-background-alt-transparent: rgba(73, 73, 73, 0.5);
     --game-details-color: white;
     --game-details-background: #2f2f2f;
