@@ -58,10 +58,11 @@ body {
     color: var(--timer-color);
     /* Hide timer label for most layouts. */
     display: none;
+    font-size: 50px;
 }
 
 #timer {
-    position: absolute;
+    position: left;
     background-color: var(--sidebar-background);
     color: var(--timer-color);
 }
