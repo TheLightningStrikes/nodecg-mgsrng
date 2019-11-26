@@ -17,13 +17,13 @@ body {
     --text-background: white;
     --text-color-alt: #ff8200;
     --text-background-alt: #502c69;
-    --text-background-alt-transparent: rgba(80, 44, 105, 0.5);
+    --text-background-alt-transparent: rgba(73, 73, 73, 0.5);
     --game-details-color: white;
     --game-details-background: #2f2f2f;
     --timer-color: white;
     --timer-background: #502c69;
-    --timer-color-alt: #502c69;
-    --timer-background-alt: white;
+    --timer-color-alt: white;
+    --timer-background-alt: #2f2f2f;
     --game-feed-chroma-key: #00ff00;
     --sidebar-background: #2f2f2f;
     --header-background: #3f3f3f;
