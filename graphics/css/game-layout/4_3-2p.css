@@ -29,7 +29,7 @@
     bottom: 130px;
     right: 0;
     font-size: 72px;
-    padding-left: 70px;
+    /* padding-left: 70px; */
     background-color: var(--timer-background-alt);
     color: var(--timer-color-alt);
 }

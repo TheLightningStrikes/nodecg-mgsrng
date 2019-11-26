@@ -38,7 +38,7 @@
     line-height: 80px;
     top: 123px;
     left: 857px;
-    padding-left: 90px;
+    /* padding-left: 90px; */
     font-size: 72px;
     color: var(--timer-color-alt);
     background-color: var(--timer-background-alt);
