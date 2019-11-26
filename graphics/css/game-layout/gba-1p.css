@@ -79,7 +79,7 @@
     font-size: 48px;
     text-align: center;
     color: var(--timer-color);
-    background-color: var(--timer-background);
+    background-color: var(--header-background);
 }
 
 #runner-details1 {
