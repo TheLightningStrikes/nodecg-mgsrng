@@ -25,6 +25,16 @@
         "height": 1080
       },
       {
+        "file": "game-layout-notracker.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "intermission-notracker.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
         "file": "background.html",
         "width": 1920,
         "height": 1080
