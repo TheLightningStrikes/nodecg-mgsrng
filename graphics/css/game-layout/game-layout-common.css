@@ -58,11 +58,11 @@ body {
     color: var(--timer-color);
     /* Hide timer label for most layouts. */
     display: none;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 #timer {
-    position: left;
+    position: absolute;
     background-color: var(--sidebar-background);
     color: var(--timer-color);
 }
@@ -85,7 +85,7 @@ body {
 }
 
 .runner-name {
-    color: var(--text-color);
+    color: var(--game-details-color);
     background-color: var(--header-background);
 }
 
