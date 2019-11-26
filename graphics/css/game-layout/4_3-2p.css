@@ -64,6 +64,7 @@
 
 .game-detail {
     color: var(--text-color-alt);
+    padding-left: 15px;
 }
 
 #category-container {
@@ -76,12 +77,12 @@
 
 #estimate-container {
     top: 140px;
-    left: 400px;
+    left: 600px;
 }
 
 #year-container {
     top: 190px;
-    left: 400px;
+    left: 600px;
 }
 
 .runner-details {
