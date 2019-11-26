@@ -24,7 +24,7 @@ body {
     width: var(--sidebar-width);
     height: 1080px;
     font-size: 48px;
-    background-color: #2c304b;
+    background-color: var(--sidebar-background);
 }
 
 #event-logo-container {

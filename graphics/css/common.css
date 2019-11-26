@@ -13,7 +13,7 @@ body {
     position: absolute;
 
     /* Colour definitions across layouts. */
-    --text-color: #502c69;
+    --text-color: #4f4f4f;
     --text-background: white;
     --text-color-alt: #ff8200;
     --text-background-alt: #502c69;
@@ -25,4 +25,5 @@ body {
     --timer-color-alt: #502c69;
     --timer-background-alt: white;
     --game-feed-chroma-key: #00ff00;
+    --sidebar-background: #3f3f3f;
 }
