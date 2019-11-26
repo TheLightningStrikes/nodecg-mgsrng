@@ -29,7 +29,7 @@
     line-height: 80px;
     top: 123px;
     right: 350px;
-    font-size: 60px;
+    font-size: 50px;
 }
 
 #timer {
@@ -39,7 +39,7 @@
     top: 123px;
     right: 25px;
     padding-left: 90px;
-    font-size: 72px;
+    font-size: 50px;
     color: var(--timer-color-alt);
     background-color: var(--timer-background-alt);
 }

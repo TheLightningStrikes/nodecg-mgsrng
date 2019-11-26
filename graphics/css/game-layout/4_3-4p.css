@@ -29,7 +29,7 @@
     line-height: 80px;
     top: 123px;
     left: 737px;
-    font-size: 60px;
+    font-size: 50px;
 }
 
 #timer {
@@ -38,7 +38,7 @@
     line-height: 80px;
     top: 123px;
     left: 857px;
-    padding-left: 90px;
+    padding-left: 50px;
     font-size: 72px;
     color: var(--timer-color-alt);
     background-color: var(--timer-background-alt);

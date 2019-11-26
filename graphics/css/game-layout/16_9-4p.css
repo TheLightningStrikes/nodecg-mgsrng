@@ -29,7 +29,7 @@
     line-height: 80px;
     top: 123px;
     left: 737px;
-    font-size: 60px;
+    font-size: 50px;
 }
 
 #timer {
@@ -39,7 +39,7 @@
     top: 123px;
     left: 857px;
     padding-left: 90px;
-    font-size: 72px;
+    font-size: 50px;
     color: var(--timer-color-alt);
     background-color: var(--timer-background-alt);
 }
@@ -80,7 +80,7 @@
     font-size: 48px;
     text-align: center;
     color: var(--timer-color);
-    background-color: var(--timer-background);
+    background-color: var(--header-background);
 }
 
 .runner-details {
