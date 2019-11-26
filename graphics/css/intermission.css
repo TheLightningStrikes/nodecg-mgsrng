@@ -9,7 +9,7 @@ body {
 }
 
 .wrapper {
-    background: url('../img/yetee-overlay.png') no-repeat, url('../img/background.png') no-repeat;
+    background: url('../img/overlay.png') no-repeat, url('../img/background.png') no-repeat;
     font-family: "consolas", sans-serif;
     color: white;
     width: 1920px;
@@ -167,8 +167,8 @@ body {
     height: 60px;
     line-height: 60px;
     font-size: 48px;
-    color: var(--text-color);
-    background: white;
+    color: var(--header-text-color);
+    background: var(--text-color);
 }
 
 .incentive-wrapper {
@@ -239,8 +239,8 @@ body {
     height: 60px;
     line-height: 60px;
     font-size: 48px;
-    color: var(--text-color);
-    background: white;
+    color: var(--header-text-color);
+    background: var(--text-color);
 }
 
 .bid-war-name {
