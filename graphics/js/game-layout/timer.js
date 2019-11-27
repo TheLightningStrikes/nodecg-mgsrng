@@ -1,84 +1,71 @@
-// Timer control functionality
 'use strict';
-
 $(() => {
-    if (offlineMode) {
-        loadOffline();
-    }
-    else{
-        loadFromSpeedControl();
-    }
+	// The bundle name where all the run information is pulled from.
+	var speedcontrolBundle = 'nodecg-speedcontrol';
+	
+	// JQuery selectors.
+	var finishTimes = $('.finish-time'); // Array of finish timers (*should* be in the same order as the players).
+	
+	// Declaring other variables.
+	var currentTime;
+	var backupTimerTO;
+	
+	var runDataActiveRun = nodecg.Replicant('runDataActiveRun', speedcontrolBundle);
+	var timer = nodecg.Replicant('timer', speedcontrolBundle);
 
-    function loadOffline() {
-        // JQuery selectors.
-        let timer = $('#timer');
+	NodeCG.waitForReplicants(runDataActiveRun, timer).then(() => {
+		timer.on('change', (newVal, oldVal) => {
+			if (!newVal) return;
+			updateTimer(newVal, oldVal);
+			updateFinishTimes(newVal, oldVal);
+			
+			// Backup Timer
+			clearTimeout(backupTimerTO);
+			backupTimerTO = setTimeout(backupTimer, 1000);
+		});
+	});
+	
+	// Backup timer that takes over if the connection to the server is lost.
+	// Based on the last timestamp that was received.
+	// When the connection is restored, the server timer will recover and take over again.
+	function backupTimer() {
+		backupTimerTO = setTimeout(backupTimer, 200);
+		if (timer.value.state === 'running') {
+			var missedTime = Date.now() - timer.value.timestamp;
+			var timeOffset = timer.value.milliseconds + missedTime;
+			updateTimer({time:msToTime(timeOffset)});
+		}
+	}
+	
+	function updateTimer(newVal, oldVal) {
+		var time = newVal.time || '88:88:88';
+		
+		// Change class on the timer to change the colour if needed.
+		if (oldVal) $('#timer').toggleClass('timer_'+oldVal.state, false);
+		$('#timer').toggleClass('timer_'+newVal.state, true);
+		
+		$('#timer').html(time);
+		//$('#timer').lettering(); // Makes each character into a <span>.
+		currentTime = time;
+	}
 
-        timer.html("02:11:21");
-    }
+	function updateFinishTimes(newVal, oldVal) {
+		if (finishTimes.length <= 1) return;
 
-    function loadFromSpeedControl() {
-        // The bundle name where all the run information is pulled from.
-        const speedcontrolBundle = 'nodecg-speedcontrol';
+		var teams = runDataActiveRun.value.teams;
+		teams.forEach((team, index) => {
+			var team = teams[index];
+			var container = finishTimes.eq(index);
 
-        // Declaring other variables.
-        let backupTimerTO;
+			if (newVal.teamFinishTimes[team.id] && (!oldVal || !oldVal.teamFinishTimes[team.id])) {
+				$(container).html(newVal.teamFinishTimes[team.id].time);
+				$(container).css('display', 'flex');
+			}
 
-        // This is where the timer information is received.
-        // The "change" event is triggered whenever the time changes or the state changes.
-        let timer = nodecg.Replicant('timer', speedcontrolBundle);
-        timer.on('change', (newVal, oldVal) => {
-            if (!newVal) {
-                return;
-            }
-            updateTimer(newVal, oldVal);
-
-            // Backup Timer
-            clearTimeout(backupTimerTO);
-            backupTimerTO = setTimeout(backupTimer, 1000);
-        });
-
-        // Backup timer that takes over if the connection to the server is lost.
-        // Based on the last timestamp that was received.
-        // When the connection is restored, the server timer will recover and take over again.
-        function backupTimer() {
-            backupTimerTO = setTimeout(backupTimer, 200);
-            if (timer.value.state === 'running') {
-                let missedTime = Date.now() - timer.value.timestamp;
-                let timeOffset = timer.value.milliseconds + missedTime;
-                updateTimer({time:msToTime(timeOffset)});
-            }
-        }
-
-        // Update the run timer when changed.
-        function updateTimer(newVal, oldVal) {
-            let time = newVal.time || '88:88:88';
-            let timer = $('#timer');
-
-            // Change class on the timer to change the colour if needed.
-            if (oldVal) {
-                timer.removeClass('timer_' + oldVal.state);
-            }
-            timer.addClass('timer_'+newVal.state);
-            timer.html(time);
-        }
-
-        // This is the finished times for the current runners.
-        let finishedTimers = nodecg.Replicant('finishedTimers', speedcontrolBundle);
-        finishedTimers.on('change', (newVal, oldVal) => {
-            if (newVal) {
-                updateFinishedTimes(newVal);
-            }
-        });
-
-        // Sets the finished times for runners.
-        function updateFinishedTimes(finishedTimes) {
-            $('.finish-time').text("").hide();
-            for (let time of finishedTimes) {
-                // Runner index is zero-based.
-                let i = Number.parseInt(time.index) + 1;
-                $('#finish-time' + i).html(time.time).show();
-            }
-        }
-    }
+			else if (oldVal && oldVal.teamFinishTimes[team.id] && !newVal.teamFinishTimes[team.id]) {
+				$(container).html('');
+				$(container).hide();
+			}
+		});
+	}
 });
-
