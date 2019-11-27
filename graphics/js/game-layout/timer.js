@@ -5,7 +5,8 @@ $(() => {
 	
 	// JQuery selectors.
 	var finishTimes = $('.finish-time'); // Array of finish timers (*should* be in the same order as the players).
-	
+	$('.finish-time').hide();
+
 	// Declaring other variables.
 	var currentTime;
 	var backupTimerTO;
