@@ -266,7 +266,7 @@ $(() => {
 
         for (let bid of currentBids) {
             if (bid.war) {
-                if (bidWars.length < numBids) {
+                if (bidWars.length < numBids && bid.minimum <= 0) {
                     bidWars.push(bid);
                 }
             } else {
