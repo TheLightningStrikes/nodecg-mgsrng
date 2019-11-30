@@ -312,7 +312,7 @@ $(() => {
             let bidWarGame = $(".bid-war-game");
             let bidWarName = $(".bid-war-name");
             bidWarGame.text('');
-            bidWarName.text(wars.name);
+            bidWarName.text(wars.title);
 
             let bidWarTotal = wars.total; /* All bids summed */
 
