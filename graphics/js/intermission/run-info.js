@@ -306,7 +306,7 @@ $(() => {
 
         let bidWarsWrapper = $(".bid-wars-wrapper");
         bidWarsWrapper.hide();
-        // if (bidWars.length > 0) {
+        if (bidWars.length > 0) {
             let bid = bidWars[0];
 
             let bidWarGame = $(".bid-war-game");
@@ -321,8 +321,8 @@ $(() => {
             // Show max 3 options.
             $(".bid").hide();
             for (let i = 1; i <= 3; i++) {
-                // if (wars.options.length >= i) {
-                  //  let option = wars.options[i - 1];
+                if (wars.options.length >= i) {
+                    let option = wars.options[i - 1];
 
                     let bidProgress = $(".bid-progress" + i);
                     let bidName = $(".bid-name" + i);
@@ -343,7 +343,7 @@ $(() => {
 
                     // Show the container for this bid.
                     bidName.closest(".bid").show();
-                //}
+                }
             }
 
             // Show bid war.
