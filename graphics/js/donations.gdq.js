@@ -15,7 +15,7 @@ $(() => {
 
     function loadFromSpeedControl(){
         // The bundle name where all the run information is pulled from.
-        const donationBundle = 'speedcontrol-srcomtracker';
+        const donationBundle = 'speedcontrol-gdqtracker';
 
         // JQuery selectors.
         let donationTotalElement = $('#donation-total');
@@ -31,11 +31,9 @@ $(() => {
                     easing: 'swing',
                     step: function() {
                         donationTotalElement.text(currencyFormatter.format(this.countNum));
-			//console.log('Text should be ' + this.countNum);
                     },
                     complete: function() {
                         donationTotalElement.text(currencyFormatter.format(this.countNum));
-			//console.log('Text should be ' + this.countNum);
                     },
                 }
             );
