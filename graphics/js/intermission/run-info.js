@@ -349,6 +349,7 @@ $(() => {
             // Show bid war.
         //     bidWarsWrapper.show();
         // }
+
  	/* BID WAR */
 	for (let bid of bidWars) {
 		
@@ -394,5 +395,6 @@ $(() => {
         bidProgressText3.text('$' + bidProgressValue3);
 
 	bidWarsWrapper.show();
+	/* END BID WAR */
    }
 });
