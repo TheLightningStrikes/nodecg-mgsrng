@@ -3,8 +3,7 @@
 
 // The bundle name where all the run information is pulled from.
 const speedcontrolBundle = 'nodecg-speedcontrol';
-// const donationBundle = 'speedcontrol-gdqtracker';
-const donationBundle = 'speedcontrol-srcomtracker';
+const donationBundle = 'speedcontrol-gdqtracker';
 
 const rotateInterval = 15000;
 let rotateState = 0;
@@ -14,9 +13,7 @@ $(() => {
     // Run data.
     let runDataActiveRun = nodecg.Replicant('runDataActiveRun', speedcontrolBundle);
     let runDataArray = nodecg.Replicant('runDataArray', speedcontrolBundle);
-    //let bids = nodecg.Replicant('bids', donationBundle);
-    let bids = nodecg.Replicant('donationGoals', donationBundle);
-    let wars = nodecg.Replicant('donationBidwars', donationBundle);
+    let bids = nodecg.Replicant('bids', donationBundle);
 
     // Get the next X runs in the schedule.
     function getNextRuns(runData, amount) {
@@ -52,7 +49,7 @@ $(() => {
     }
     else {
         // Wait for replicants to load before we do anything.
-        NodeCG.waitForReplicants(runDataActiveRun, runDataArray, donationGoals, donationBidwars).then(loadFromSpeedControl);
+        NodeCG.waitForReplicants(runDataActiveRun, runDataArray, bids).then(loadFromSpeedControl);
     }
 
     // Rotate between upcoming runs, incentives, and bid wars.
