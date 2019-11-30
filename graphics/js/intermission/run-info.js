@@ -348,6 +348,6 @@ $(() => {
 
             // Show bid war.
             bidWarsWrapper.show();
-        // }
+        }
     }
 });
