@@ -306,7 +306,7 @@ $(() => {
 
         let bidWarsWrapper = $(".bid-wars-wrapper");
         bidWarsWrapper.hide();
-        if (bidWars.length > 0) {
+        // if (bidWars.length > 0) {
             let bid = bidWars[0];
 
             let bidWarGame = $(".bid-war-game");
@@ -348,6 +348,6 @@ $(() => {
 
             // Show bid war.
             bidWarsWrapper.show();
-        }
+        // }
     }
 });
