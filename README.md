@@ -26,7 +26,7 @@ Install the Speedcontrol bundle, our extra Speedcontrol functionality, and this 
 
 ```bash
 nodecg install speedcontrol/nodecg-speedcontrol
-nodecg install speedcontrol/nodecg-srcomtracker
+nodecg install speedcontrol/speedcontrol-srcomtracker
 nodecg install PowerUpWithPride/speedcontrol-layoutswitch
 nodecg install PowerUpWithPride/speedcontrol-gdqtracker
 nodecg install PowerUpWithPride/puwp-2019-layouts-new
@@ -42,7 +42,7 @@ You can generate default config files for the bundles based on their config sche
 nodecg defaultconfig nodecg-speedcontrol
 nodecg defaultconfig speedcontrol-layoutswitch
 nodecg defaultconfig speedcontrol-gdqtracker
-nodecg defaultconfig nodecg-srcomtracker
+nodecg defaultconfig speedcontrol-srcomtracker
 ```
 
 This will create a new subdirectory called `cfg` for the config files.  Update the `speedcontrol-layoutswitch.json` and `speedcontrol-gdqtracker.json` files with your settings for any extra custom layouts, and donation tracker settings if you're using it.
