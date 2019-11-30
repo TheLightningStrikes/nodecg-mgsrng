@@ -353,7 +353,7 @@ $(() => {
  	/* BID WAR */
 	for (let bid of bidWars) {
 		
-	}
+	// }
         let bidWarGame = $(".bid-war-game");
         let bidWarName = $(".bid-war-name");
 
@@ -393,7 +393,7 @@ $(() => {
         bidProgress3.css('background-color', getProgressBarColor(bidProgressValue3, bidWarTotal));
         bidName3.text("PUWP");
         bidProgressText3.text('$' + bidProgressValue3);
-
+	}
 	bidWarsWrapper.show();
 	/* END BID WAR */
    }
