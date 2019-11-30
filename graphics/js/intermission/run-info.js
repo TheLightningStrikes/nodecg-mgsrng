@@ -305,7 +305,7 @@ $(() => {
         }
 
         let bidWarsWrapper = $(".bid-wars-wrapper");
-        bidWarsWrapper.hide();
+        // bidWarsWrapper.hide();
         // if (bidWars.length > 0) {
         //     let bid = bidWars[0];
 
@@ -350,56 +350,8 @@ $(() => {
         //     bidWarsWrapper.show();
         // }
 
- 	/* BID WAR */
-	for (let bid of bidWars) {
-		
-	// }
-        let bidWarGame = $(".bid-war-game");
-        let bidWarName = $(".bid-war-name");
 
-        let bidWarTotal = 300; /* All bids summed */
-
-        let bidProgressFull = $(".bid-progress-full");
-
-        let bidProgress1 = $(".bid-progress1");
-        let bidName1 = $(".bid-name1");
-        let bidProgressText1 = $(".bid-progress-text1");
-        let bidProgressValue1 = 200;
-
-        let bidProgress2 = $(".bid-progress2");
-        let bidName2 = $(".bid-name2");
-        let bidProgressText2 = $(".bid-progress-text2");
-        let bidProgressValue2 = 50;
-
-        let bidProgress3 = $(".bid-progress3");
-        let bidName3 = $(".bid-name3");
-        let bidProgressText3 = $(".bid-progress-text3");
-        let bidProgressValue3 = 50;
-
-        bidWarGame.text('');
-        bidWarName.text(bid.title);
-
-        // bidProgress1.width((bidProgressValue1 / bidWarTotal) * bidProgressFull.width());
-        // bidProgress1.css('background-color', getProgressBarColor(bidProgressValue1, bidWarTotal));
-        // bidName1.text("20K Pan Mae");
-        // bidProgressText1.text('$' + bidProgressValue1);
-
-        // bidProgress2.width((bidProgressValue2 / bidWarTotal) * bidProgressFull.width());
-        // bidProgress2.css('background-color', getProgressBarColor(bidProgressValue2, bidWarTotal));
-        bidName2.text("PUWP");
-        bidProgressText2.text('$' + bidProgressValue2);
-
-        bidProgress3.width((bidProgressValue3 / bidWarTotal) * bidProgressFull.width());
-        bidProgress3.css('background-color', getProgressBarColor(bidProgressValue3, bidWarTotal));
-        bidName3.text("PUWP");
-        bidProgressText3.text('$' + bidProgressValue3);
-	}
-	bidWarsWrapper.show();
-	/* END BID WAR */
    }
-=======
-            bidWarsWrapper.show();
         // }
     }
->>>>>>> parent of 01df5bd... Revert "Update run-info.js"
 });
