@@ -287,13 +287,13 @@ $(() => {
             let incentiveProgressFull = $(".incentive-progress-full");
             let incentiveProgress = $(".incentive-progress" + i);
 
-            let incentiveTotalValue = bid.minimum;
-            let incentiveProgressValue = bid.current;
+            let incentiveTotalValue = bid.minimum/100;
+            let incentiveProgressValue = bid.current/100;
             let incentiveTextConcat = currencyFormatter.format(incentiveProgressValue) + "/" + currencyFormatter.format(incentiveTotalValue);
             incentiveProgress.width((incentiveProgressValue / incentiveTotalValue) * incentiveProgressFull.width());
             incentiveProgress.css('background-color', getProgressBarColor(incentiveProgressValue, incentiveTotalValue));
 
-            incentiveGame.text(bid.title);
+            incentiveGame.text(''');
             incentiveName.text(bid.title);
             incentiveProgressText.text(incentiveTextConcat);
 
