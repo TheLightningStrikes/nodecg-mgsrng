@@ -270,7 +270,7 @@ $(() => {
                     bidWars.push(bid);
                 }
             } else {
-                if (incentives.length < numIncentives) {
+                if (incentives.length < numIncentives && bid.minimum > 0) {
                     incentives.push(bid);
                 }
             }
