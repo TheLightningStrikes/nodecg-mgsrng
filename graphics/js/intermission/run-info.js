@@ -397,4 +397,9 @@ $(() => {
 	bidWarsWrapper.show();
 	/* END BID WAR */
    }
+=======
+            bidWarsWrapper.show();
+        // }
+    }
+>>>>>>> parent of 01df5bd... Revert "Update run-info.js"
 });
