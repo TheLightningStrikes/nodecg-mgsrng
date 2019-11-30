@@ -308,18 +308,18 @@ $(() => {
 
             let bidWarGame = $(".bid-war-game");
             let bidWarName = $(".bid-war-name");
-            bidWarGame.text(bid.game);
-            bidWarName.text(bid.name);
+            bidWarGame.text('');
+            bidWarName.text(wars.name);
 
-            let bidWarTotal = bid.total; /* All bids summed */
+            let bidWarTotal = wars.total; /* All bids summed */
 
             let bidProgressFull = $(".bid-progress-full");
 
             // Show max 3 options.
             $(".bid").hide();
             for (let i = 1; i <= 3; i++) {
-                if (bid.options.length >= i) {
-                    let option = bid.options[i - 1];
+                if (wars.options.length >= i) {
+                    let option = wars.options[i - 1];
 
                     let bidProgress = $(".bid-progress" + i);
                     let bidName = $(".bid-name" + i);
