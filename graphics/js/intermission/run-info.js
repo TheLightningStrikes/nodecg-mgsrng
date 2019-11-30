@@ -279,7 +279,7 @@ $(() => {
         $(".incentive").hide();
         let i = 0;
         for (let bid of incentives) {
-	    if (bid.minimum <= 0) {
+	    if (bid.minimum > 0) {
             	i += 1;
 
             	let incentiveGame = $(".incentive-game" + i);
