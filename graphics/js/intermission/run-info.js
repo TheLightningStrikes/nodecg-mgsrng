@@ -293,7 +293,7 @@ $(() => {
             incentiveProgress.width((incentiveProgressValue / incentiveTotalValue) * incentiveProgressFull.width());
             incentiveProgress.css('background-color', getProgressBarColor(incentiveProgressValue, incentiveTotalValue));
 
-            incentiveGame.text(''');
+            incentiveGame.text('');
             incentiveName.text(bid.title);
             incentiveProgressText.text(incentiveTextConcat);
 
