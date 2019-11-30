@@ -213,6 +213,10 @@ $(() => {
         bids.on('change', (newVal, oldVal) => {
             refreshNextBidsData(newVal);
         });
+
+	wars.on('change', (newVal, oldVal) => {
+            refreshNextBidsData(newVal);
+        });
     }
 
     function getNamesForRun(runData) {
@@ -283,14 +287,14 @@ $(() => {
             let incentiveProgressFull = $(".incentive-progress-full");
             let incentiveProgress = $(".incentive-progress" + i);
 
-            let incentiveTotalValue = bid.goal;
-            let incentiveProgressValue = bid.total;
+            let incentiveTotalValue = bid.minimum;
+            let incentiveProgressValue = bid.current;
             let incentiveTextConcat = currencyFormatter.format(incentiveProgressValue) + "/" + currencyFormatter.format(incentiveTotalValue);
             incentiveProgress.width((incentiveProgressValue / incentiveTotalValue) * incentiveProgressFull.width());
             incentiveProgress.css('background-color', getProgressBarColor(incentiveProgressValue, incentiveTotalValue));
 
-            incentiveGame.text(bid.game);
-            incentiveName.text(bid.name);
+            incentiveGame.text(bid.title);
+            incentiveName.text(bid.title);
             incentiveProgressText.text(incentiveTextConcat);
 
             // Show incentive container for this bid.
