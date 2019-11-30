@@ -322,7 +322,7 @@ $(() => {
             $(".bid").hide();
             for (let i = 1; i <= 3; i++) {
                 // if (wars.options.length >= i) {
-                    let option = wars.options[i - 1];
+                  //  let option = wars.options[i - 1];
 
                     let bidProgress = $(".bid-progress" + i);
                     let bidName = $(".bid-name" + i);
