@@ -52,7 +52,7 @@ $(() => {
     }
     else {
         // Wait for replicants to load before we do anything.
-        NodeCG.waitForReplicants(runDataActiveRun, runDataArray, donationGoals, donationBidwars).then(loadFromSpeedControl);
+        NodeCG.waitForReplicants(runDataActiveRun, runDataArray, bids, wars).then(loadFromSpeedControl);
     }
 
     // Rotate between upcoming runs, incentives, and bid wars.
