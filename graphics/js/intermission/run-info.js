@@ -5,7 +5,7 @@
 const speedcontrolBundle = 'nodecg-speedcontrol';
 const donationBundle = 'speedcontrol-srcomtracker';
 
-const rotateInterval = 5000;
+const rotateInterval = 15000;
 let rotateState = 0;
 let bidWarWrap = '';
 let bidWarCurrent = 0;
