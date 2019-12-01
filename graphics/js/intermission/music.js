@@ -12,5 +12,5 @@ function updateMusic() {
     });
 }
 
-updateMusic();
-setInterval(updateMusic, refreshInterval);
+//updateMusic();
+//setInterval(updateMusic, refreshInterval);

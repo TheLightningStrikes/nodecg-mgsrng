@@ -3,22 +3,20 @@
 
 // The bundle name where all the run information is pulled from.
 const speedcontrolBundle = 'nodecg-speedcontrol';
+// const donationBundle = 'speedcontrol-gdqtracker';
 const donationBundle = 'speedcontrol-srcomtracker';
 
-const rotateInterval = 5000;
+const rotateInterval = 15000;
 let rotateState = 0;
-let bidWarWrap = '';
-let bidWarCurrent = 0;
-let incentiveWrap = '';
-let incentiveCurrent = 0;
 
 // Initialize the page.
 $(() => {
     // Run data.
     let runDataActiveRun = nodecg.Replicant('runDataActiveRun', speedcontrolBundle);
     let runDataArray = nodecg.Replicant('runDataArray', speedcontrolBundle);
-    let bids = nodecg.Replicant('donationBidwars', donationBundle);
-    let goals = nodecg.Replicant('donationGoals', donationBundle);
+    //let bids = nodecg.Replicant('bids', donationBundle);
+    let bids = nodecg.Replicant('donationGoals', donationBundle);
+    let wars = nodecg.Replicant('donationBidwars', donationBundle);
 
     // Get the next X runs in the schedule.
     function getNextRuns(runData, amount) {
@@ -54,62 +52,32 @@ $(() => {
     }
     else {
         // Wait for replicants to load before we do anything.
-        NodeCG.waitForReplicants(runDataActiveRun, runDataArray, bids, goals).then(loadFromSpeedControl);
+        NodeCG.waitForReplicants(runDataActiveRun, runDataArray, bids, wars).then(loadFromSpeedControl);
     }
 
     // Rotate between upcoming runs, incentives, and bid wars.
     setInterval(rotate, rotateInterval);
-    //rotate();
+
     function rotate() {
-        if (rotateState === 0) {
-            rotateState = 1;
-            $('.bid-wars').hide();
-            $('.schedule').fadeOut(500, () => {
-                var bw_items_count = $('.incentive-wrapper').find('.incentive-item').length;
-                if(bw_items_count > 3){
-                    $('.incentive-wrapper').find('.incentive-item').hide();
-                    if(incentiveCurrent == 0 || (incentiveCurrent) >= bw_items_count){
-                        var bwItems = $('.incentive-wrapper').find('.incentive-item').slice(0, 3);
-                        incentiveCurrent = 0;
-                    }
-                    else{
-                        var bwItems = $('.incentive-wrapper').find('.incentive-item').eq(incentiveCurrent-1).nextAll().slice(0, 3); 
-                    }
-                    $.each(bwItems, function(bwi, bwv){
-                        $(this).show();
-                        incentiveCurrent++;
-                    });
-                }
-                $('.incentives').fadeIn(500);
-            });
-        } else if (rotateState === 1) {
-            rotateState = 2;
-            $('.schedule').hide();
-            $('.incentives').fadeOut(500, () => {
-                var bw_items_count = $('.bid-wars-wrapper').find('.bid-war-item').length;
-                if(bw_items_count > 3){
-                    $('.bid-wars-wrapper').find('.bid-war-item').hide();
-                    if(bidWarCurrent == 0 || (bidWarCurrent) >= bw_items_count){
-                        var bwItems = $('.bid-wars-wrapper').find('.bid-war-item').slice(0, 3);
-                        bidWarCurrent = 0;
-                    }
-                    else{
-                        var bwItems = $('.bid-wars-wrapper').find('.bid-war-item').eq(bidWarCurrent-1).nextAll().slice(0, 3); 
-                    }
-                    $.each(bwItems, function(bwi, bwv){
-                        $(this).show();
-                        bidWarCurrent++;
-                    });
-                }
-                $('.bid-wars').fadeIn(500);
-            });
-        } else {
-            rotateState = 0;
-            $('.incentives').hide();
-            $('.bid-wars').fadeOut(500, () => {
+ //       if (rotateState === 0) {
+ //           rotateState = 1;
+ //           $('.bid-wars').hide();
+ //           $('.schedule').fadeOut(500, () => {
+ //               $('.incentives').fadeIn(500);
+ //           });
+ //       } else if (rotateState === 1) {
+ //           rotateState = 2;
+ //           $('.schedule').hide();
+ //           $('.incentives').fadeOut(500, () => {
+ //               $('.bid-wars').fadeIn(500);
+ //           });
+ //       } else {
+ //           rotateState = 0;
+ //           $('.incentives').hide();
+ //           $('.bid-wars').fadeOut(500, () => {
                 $('.schedule').fadeIn(500);
-            });
-        }
+ //           });
+ //       }
     }
 
     function loadOffline(){
@@ -245,8 +213,9 @@ $(() => {
         bids.on('change', (newVal, oldVal) => {
             refreshNextBidsData(newVal);
         });
-        goals.on('change', (newVal, oldVal) => {
-            refreshNextGoalsData(newVal);
+
+	wars.on('change', (newVal, oldVal) => {
+            refreshNextBidsData(newVal);
         });
     }
 
@@ -289,108 +258,99 @@ $(() => {
         }
     }
 
-    function refreshNextGoalsData(incentives) {
+    function refreshNextBidsData(currentBids) {
         const numIncentives = 3;
         const numBids = 1;
+        let incentives = [];
+        let bidWars = [];
 
-        incentives = $.parseJSON(JSON.stringify(incentives));
-
-        if(incentiveWrap == ''){
-            incentiveWrap = $('.incentive-wrapper').clone();
-        }
-
-        $('.incentive-wrapper').html('');
-        let i = 0;
-        for (let bid of incentives) {
-            i += 1;
-
-            let incentiveGame = incentiveWrap.find(".incentive-game1");
-            let incentiveName = incentiveWrap.find(".incentive-name1");
-            let incentiveProgressText = incentiveWrap.find(".incentive-progress-text1");
-            let incentiveProgressFull = incentiveWrap.find(".incentive-progress-full");
-            let incentiveProgress = incentiveWrap.find(".incentive-progress1");
-
-            let incentiveTotalValue = bid.minimum/100;
-            let incentiveProgressValue = bid.current/100;
-            let incentiveTextConcat = currencyFormatter.format(incentiveProgressValue) + "/" + currencyFormatter.format(incentiveTotalValue);
-            incentiveProgress.width(((incentiveProgressValue / incentiveTotalValue) * 100) + '%');
-            incentiveProgress.css('background-color', getProgressBarColor(incentiveProgressValue, incentiveTotalValue));
-
-            incentiveGame.text('');
-            incentiveName.text(bid.title);
-            incentiveProgressText.text(incentiveTextConcat);
-
-            $('.incentive-wrapper').append('<div class="incentive-item incentive-item-'+i+'" style="margin-bottom:10px">'+incentiveWrap.html()+'</div>');
-        }
-
-
-    }
-
-
-    function refreshNextBidsData(bidWars) {
-        const numIncentives = 3;
-        const numBids = 1;
-        bidWars = bidWars = $.parseJSON(JSON.stringify(bidWars));
-
-        if(bidWarWrap == ''){
-            bidWarWrap = $(".bid-wars-wrapper").clone();
-        }
-
-        $(".bid-wars-wrapper").html('');
-        //let bidWarsWrapper = $(".bid-wars-wrapper");
-        //bidWarsWrapper.hide();
-
-        if (bidWars.length > 0) {
-            //console.log($.parseJSON(JSON.stringify(bidWars)));
-            $.each(bidWars, function(i,bv){
-
-            let bid = bv;
-            if(bid.status != "open") return;
-
-            let bidWarGame = bidWarWrap.find(".bid-war-game");
-            let bidWarName = bidWarWrap.find(".bid-war-name");
-            bidWarGame.text('');
-            bidWarName.text(bid.title);
-
-            let bidWarTotal = 0; /* All bids summed */
-            $.each(bid.goals.data, function(ii,vv){
-                bidWarTotal = bidWarTotal+vv.current;
-            });
-            bidWarTotal = bidWarTotal/100;
-
-            let bidProgressFull = bidWarWrap.find(".bid-progress-full");
-
-            // Show max 3 options.
-            bidWarWrap.find(".bid").hide();
-            for (let i = 1; i <= 3; i++) {
-                if (bid.goals.data.length >= i) {
-                    let option = bid.goals.data[i - 1];
-                    let bidProgress = bidWarWrap.find(".bid-progress" + i);
-                    let bidName = bidWarWrap.find(".bid-name" + i);
-                    let bidProgressText = bidWarWrap.find(".bid-progress-text" + i);
-                    let bidProgressValue = option.current/100;
-                    let progress;
-                    
-                    if (bidWarTotal) {
-                        progress = bidProgressValue / bidWarTotal;
-                    } else {
-                        progress = 0;
-                    }
-
-                    bidProgress.width((progress * 100)+'%');
-                    bidProgress.css('background-color', getProgressBarColor(bidProgressValue, bidWarTotal));
-                    bidName.text(option.title);
-                    bidProgressText.text(currencyFormatter.format(bidProgressValue));
-
-                    // Show the container for this bid.
-                    bidName.closest(".bid").show();
+        for (let bid of currentBids) {
+            if (bid.war) {
+                if (bidWars.length < numBids && bid.minimum <= 0) {
+                    bidWars.push(bid);
+                }
+            } else {
+                if (incentives.length < numIncentives && bid.minimum > 0) {
+                    incentives.push(bid);
                 }
             }
-
-            $(".bid-wars-wrapper").append('<div class="bid-war-item" style="margin-bottom:10px;">'+bidWarWrap.html()+'</div>');
-            });
-            // Show bid war.
-            //bidWarsWrapper.show();
         }
-    }
+
+        $(".incentive").hide();
+        let i = 0;
+        for (let bid of incentives) {
+	  //  if (bid.minimum > 0) {
+            	i += 1;
+
+            	let incentiveGame = $(".incentive-game" + i);
+            	let incentiveName = $(".incentive-name" + i);
+            	let incentiveProgressText = $(".incentive-progress-text" + i);
+            	let incentiveProgressFull = $(".incentive-progress-full");
+            	let incentiveProgress = $(".incentive-progress" + i);
+
+            	let incentiveTotalValue = bid.minimum/100;
+            	let incentiveProgressValue = bid.current/100;
+            	let incentiveTextConcat = currencyFormatter.format(incentiveProgressValue) + "/" + currencyFormatter.format(incentiveTotalValue);
+            	incentiveProgress.width((incentiveProgressValue / incentiveTotalValue) * incentiveProgressFull.width());
+            	incentiveProgress.css('background-color', getProgressBarColor(incentiveProgressValue, incentiveTotalValue));
+
+            	incentiveGame.text('');
+            	incentiveName.text(bid.title);
+            	incentiveProgressText.text(incentiveTextConcat);
+
+            	// Show incentive container for this bid.
+            	incentiveGame.parent().show();
+	  //  }
+	  //  else {}
+        }
+
+        let bidWarsWrapper = $(".bid-wars-wrapper");
+        // bidWarsWrapper.hide();
+        // if (bidWars.length > 0) {
+        //     let bid = bidWars[0];
+
+        //     let bidWarGame = $(".bid-war-game");
+        //     let bidWarName = $(".bid-war-name");
+        //     bidWarGame.text('');
+        //     bidWarName.text(wars.title);
+
+        //     let bidWarTotal = wars.total; /* All bids summed */
+
+        //     let bidProgressFull = $(".bid-progress-full");
+
+            // Show max 3 options.
+        //     $(".bid").hide();
+        //     for (let i = 1; i <= 3; i++) {
+        //         if (wars.options.length >= i) {
+        //             let option = wars.options[i - 1];
+
+        //             let bidProgress = $(".bid-progress" + i);
+        //             let bidName = $(".bid-name" + i);
+        //             let bidProgressText = $(".bid-progress-text" + i);
+        //             let bidProgressValue = option.total;
+
+        //             let progress;
+        //             if (bidWarTotal) {
+        //                 progress = bidProgressValue / bidWarTotal;
+        //             } else {
+        //                 progress = 0;
+        //            }
+
+        //             bidProgress.width(progress * bidProgressFull.width());
+        //             bidProgress.css('background-color', getProgressBarColor(bidProgressValue, bidWarTotal));
+        //             bidName.text(option.name);
+        //             bidProgressText.text(currencyFormatter.format(bidProgressValue));
+
+                    // Show the container for this bid.
+        //             bidName.closest(".bid").show();
+        //         }
+        //     }
+
+            // Show bid war.
+        //     bidWarsWrapper.show();
+        // }
+
+
+   }
+        // }
 });
