@@ -1,4 +1,4 @@
-# puwp-2019-layouts-new
+# MGSR NodeCG Layouts
 
 This is a [NodeCG](http://github.com/nodecg/nodecg) graphics bundle.  It is intended to be used with Speedcontrol, as well as our extra Speedcontrol addon bundles for some extra core functionality.
 
@@ -27,9 +27,8 @@ Install the Speedcontrol bundle, our extra Speedcontrol functionality, and this 
 ```bash
 nodecg install speedcontrol/nodecg-speedcontrol
 nodecg install speedcontrol/speedcontrol-srcomtracker
-nodecg install PowerUpWithPride/speedcontrol-layoutswitch
-nodecg install PowerUpWithPride/speedcontrol-gdqtracker
-nodecg install PowerUpWithPride/puwp-2019-layouts-new
+nodecg install mgsr/speedcontrol-layoutswitch
+nodecg install mgsr/nodecg-mgsrng
 ```
 
 This will create a `bundles` subfolder inside your new directory that contains git repositories of these two bundles.  You can now make whatever changes and tweaks you like from that location.
@@ -41,7 +40,6 @@ You can generate default config files for the bundles based on their config sche
 ```bash
 nodecg defaultconfig nodecg-speedcontrol
 nodecg defaultconfig speedcontrol-layoutswitch
-nodecg defaultconfig speedcontrol-gdqtracker
 nodecg defaultconfig speedcontrol-srcomtracker
 ```
 
