@@ -19,8 +19,8 @@
 }
 
 #event-logo-name, #event-logo-year {
-    font-size: 90px;
-}
+    font-size: 70px;
+    }
 
 #donation-container {
     width: 350px;
@@ -56,7 +56,7 @@
     color: var(--timer-color);
     height: 150px;
     line-height: 150px;
-    font-size: 95px;
+    font-size: 80px;
     padding-left: 20px;
 }
 

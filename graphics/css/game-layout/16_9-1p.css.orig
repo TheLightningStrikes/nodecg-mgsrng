@@ -38,7 +38,7 @@
 
 #game-name {
     color: var(--timer-color);
-    font-size: 60px;
+    font-size: 70px;
 }
 
 .game-detail-container {
@@ -61,13 +61,13 @@
 }
 
 #runner-name1 {
-    position: relative;
+    position: absolute;
     color: var(--timer-color);
     background-color: transparent;
     font-size: 70px;
     width: 100%;
-    right: 10px;
-    top: 20px;
+    right: 100px;
+    bottom: 25px;
     text-align: right;
 }
 
@@ -93,14 +93,13 @@
 }
 
 #finish-time1 {
-    position: relative;
-    color: var(--timer-color);
+    position: absolute;
+    color: var(--text-color-alt);
     background-color: var(--text-color);
     font-size: 40px;
-    width: 190px;
-    left: 550px;
+    width: 200px;
+    right: 0px;
     bottom: 155px;
     text-align: right;
-    padding-left: 10px;
 }
 
