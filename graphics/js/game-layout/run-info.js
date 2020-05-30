@@ -87,6 +87,7 @@ $(() => {
         let gameSystem = $('#platform');
         let gameYear = $('#year');
         let gameEstimate = $('#estimate');
+        let gameCommentators = $('#commentators');
 
         // This is where the information is received for the run we want to display.
         // The "change" event is triggered when the current run is changed.
@@ -108,7 +109,8 @@ $(() => {
             gameSystem.html(runData.system);
             gameYear.html(runData.release);
             gameEstimate.html(runData.estimate);
-
+            gameCommentators.html(runData.customData.commentators);
+            
             // Set each player names and pronouns.
             $(".runner-name").add(".pronouns").text('');
             let i = 0;

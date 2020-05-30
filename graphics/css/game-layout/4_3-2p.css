@@ -85,6 +85,11 @@
     left: 600px;
 }
 
+#commentators-container {
+    top: 140px;
+    left: 1000px;
+}
+
 .runner-details {
     width: 450px;
     text-align: center;
