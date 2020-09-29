@@ -1,0 +1,173 @@
+#charity-logo-container {
+    display: block;
+    width: 550px;
+    height: 150px;
+    right: 350px;
+    bottom: 125px;
+}
+
+#event-logo-container {
+    width: 640px;
+    right: 350px;
+    bottom: 30px;
+    letter-spacing: 20px;
+}
+
+#mushy-logo {
+    height: 84px;
+    width: 84px;
+}
+
+#event-logo-name, #event-logo-year {
+    font-size: 70px;
+    }
+
+#donation-container {
+    width: 350px;
+    height: 125px;
+    line-height: 125px;
+    padding: 15px 0;
+    bottom: 0;
+    right: 0;
+    font-size: 72px;
+    visibility: hidden;
+}
+
+#timer {
+    width: 280px;
+    height: 155px;
+    line-height: 155px;
+    bottom: 0px;
+    right: 0;
+    font-size: 50px;
+    padding-left: 70px;
+    background-color: rgba(47,47,47,0.5);
+    color: var(--timer-color-alt);
+}
+
+#game-details {
+    bottom: 0;
+    width: 1920px;
+    height: 155px;
+    background-color: rgba(73,73,73,0.30);
+    z-index: -1;
+}
+
+#game-name {
+    color: var(--timer-color);
+    height: 150px;
+    line-height: 150px;
+    font-size: 80px;
+    padding-left: 20px;
+    visibility: hidden;
+}
+
+.game-detail-container {
+    position: absolute;
+    font-size: 34px;
+}
+
+.game-detail-label {
+    color: var(--timer-color);
+    width: 150px;
+    padding-left: 25px;
+    padding-bottom: 5px;
+}
+
+.game-detail {
+    color: var(--text-color-alt);
+    padding-left: 15px;
+}
+
+#category-container {
+    top: 15px;
+}
+
+#platform-container {
+    top: 80px;
+}
+
+#estimate-container {
+    top: 15px;
+    left: 600px;
+}
+
+#year-container {
+    top: 80px;
+    left: 600px;
+}
+
+.runner-details {
+    width: 450px;
+    text-align: center;
+}
+
+.runner-name {
+    font-size: 46px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.pronouns {
+    font-size: 30px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.finish-time {
+    width: 135px;
+    height: 45px;
+    line-height: 47px;
+    font-size: 30px;
+}
+
+#runner-details1 {
+    border-style: solid;
+    border-width: revert;
+    border-color: red;
+    border-top-color: white;
+    display: block;
+    bottom: 358px;
+    left: 15px;
+}
+
+#finish-time1 {
+    top: -50px;
+    left: 5px;
+}
+
+#runner-details2 {
+    border-style: solid;
+    border-width: revert;
+    border-color: blue;
+    border-top-color: white;
+    display: block;
+    bottom: 358px;
+    right: 15px;
+}
+
+#finish-time2 {
+    top: -50px;
+    right: 5px;
+}
+
+#game-feed1 {
+    display: block;
+    width: 928px;
+    height: 522px;
+    top: 100px;
+    left: 15px;
+}
+
+#game-feed2 {
+    display: block;
+    width: 928px;
+    height: 522px;
+    top: 100px;
+    right: 15px;
+}
+
+#commentators-container {
+    top: 15px;
+    left: 948px;
+}
