@@ -90,6 +90,10 @@
     left: 1000px;
 }
 
+#commentators {
+    width: 380px;
+}
+
 .runner-details {
     width: 450px;
     text-align: center;
