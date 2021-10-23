@@ -93,7 +93,7 @@ function createPlayerData(player) {
 
     // Parse pronouns from the runner name, if they're present.
     let name = player.name.split('-');
-    let pronouns = '';
+    let pronouns = player.pronouns;
     if (name.length > 1) {
         pronouns = name[1].trim();
     }
@@ -103,6 +103,6 @@ function createPlayerData(player) {
         name: name,
         pronouns: pronouns,
         twitch: twitchUsername,
-        region: player.region
+        country: player.country
     };
 }
