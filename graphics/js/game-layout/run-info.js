@@ -1,32 +1,8 @@
 // Main run info update functionality.
 'use strict';
 
-// TODO: This is garbage, do better.
-function FixSize(selector) {
-
-    setTimeout(function(){
-        let divWidth = $(selector + ":visible").width();
-        let fontSize = 92;
-
-        // Reset font to default size to start.
-        $(selector).css("font-size", "");
-
-        let text_org = $(selector + ":visible").html();
-        let text_update = '<span style="white-space:nowrap;">' + text_org + '</span>';
-        $(selector + ":visible").html(text_update);
-
-        let childWidth = $(selector + ":visible").children().width();
-
-        // console.log(childWidth + " " + divWidth);
-
-        while ($(selector + ":visible").children().width() > divWidth){
-            // console.log($(selector + ":visible").children().width() + " " + divWidth);
-            $(selector).css("font-size", fontSize -= 1);
-        }
-
-        // console.log(fontSize)
-    }, 500);
-}
+let resizeElementList = [];
+const layoutBundle = 'speedcontrol-layoutswitch';
 
 $(() => {
     if (offlineMode) {
@@ -36,12 +12,23 @@ $(() => {
         loadFromSpeedControl();
     }
 
+    let currentLayout = nodecg.Replicant('currentGameLayout', layoutBundle);
+    currentLayout.on('change', newVal => {
+        if (newVal) {
+            for (let element in resizeElementList) {
+                resizeObserver.unobserve(resizeElementList[element]);
+                resizeElementList = [];
+                loadFromSpeedControl();
+            }
+        }
+    });
+
     function loadOffline(){
-        let gameTitle = $('#game-name');
-        let gameCategory = $('#category');
-        let gameSystem = $('#platform');
-        let gameYear = $('#year');
-        let gameEstimate = $('#estimate');
+        let gameTitle = $('#title');
+        let gameCategory = $('#category-text');
+        let gameSystem = $('#platform-text');
+        let gameYear = $('#year-text');
+        let gameEstimate = $('#estimate-text');
 
         let name1 = $("#runner-name1");
         let pronouns1 = $("#pronouns1");
@@ -72,22 +59,37 @@ $(() => {
 
         name4.text("iBazly");
         pronouns4.text("He/They");
-
-        // fixPronounWrapping(globalLayoutInfo);
     }
+
+    const resizeObserver = new ResizeObserver(entries => {
+        for (let entry of entries) {
+            const element = entry.target;
+            element.style.fontSize = "";
+            let fontSize = getComputedStyle(element).fontSize;
+            fontSize = fontSize.substring(0, fontSize.length-2);
+
+            let parentOuterWidth = element.parentElement.offsetWidth;
+            while (element.offsetWidth > parentOuterWidth) {
+
+                element.style.fontSize = `${--fontSize}px`;
+            }
+        }
+    });
 
     function loadFromSpeedControl() {
         // The bundle name where all the run information is pulled from.
         const speedcontrolBundle = 'nodecg-speedcontrol';
         const layoutBundle = 'speedcontrol-layoutswitch';
 
-        // JQuery selectors.
-        let gameTitle = $('#game-name');
-        let gameCategory = $('#category');
-        let gameSystem = $('#platform');
-        let gameYear = $('#year');
-        let gameEstimate = $('#estimate');
-        let gameCommentators = $('#commentators');
+        // Selectors.
+        let gameTitle = document.getElementById('title');
+        let gameCategory = document.getElementById('category-text');
+        let gameSystem = document.getElementById('platform-text');
+        let gameYear = document.getElementById('year-text');
+        let gameEstimate = document.getElementById('estimate-text');
+        let gameCommentators = document.getElementById('commentators-text');
+
+        resizeElementList = [gameTitle, gameCategory, gameSystem, gameYear, gameEstimate, gameCommentators];
 
         // This is where the information is received for the run we want to display.
         // The "change" event is triggered when the current run is changed.
@@ -97,37 +99,41 @@ $(() => {
                 updateSceneFields(newVal);
         });
 
-        let currentLayout = nodecg.Replicant('currentGameLayout', layoutBundle);
-
         // Sets information on the pages for the run.
         function updateSceneFields(runData) {
+
             let currentTeamsData = getRunnersFromRunData(runData);
 
             // Split year out from system platform, if present.
-            gameTitle.html(runData.game);
-            gameCategory.html(runData.category);
-            gameSystem.html(runData.system);
-            gameYear.html(runData.release);
-            gameEstimate.html(runData.estimate);
-            gameCommentators.html(runData.customData.commentators);
-            
+            gameTitle.textContent = runData.game;
+            gameCategory.textContent = runData.category;
+            gameSystem.textContent = runData.system;
+            gameYear.textContent = runData.release;
+            gameEstimate.textContent = runData.estimate;
+            gameCommentators.textContent = runData.customData.commentators;
+
             // Set each player names and pronouns.
-            $(".runner-name").add(".pronouns").text('');
             let i = 0;
             for (let team of currentTeamsData) {
                 for (let player of team.players) {
                     i += 1;
-                    let name = $("#runner-name" + i);
-                    let pronouns = $("#pronouns" + i);
-                    name.text(player.name);
-                    pronouns.text(player.pronouns);
-                    // FixSize('#runner-name' + i);
+                    let name = document.getElementById("runner-name" + i);
+                    let pronouns = document.getElementById("pronouns" + i);
+
+                    if (name === null) {
+                        break;
+                    }
+                    name.textContent = player.name;
+                    pronouns.textContent = player.pronouns;
+
+                    resizeElementList.push(name);
+                    resizeElementList.push(pronouns);
                 }
             }
 
-            // Fix pronoun wrapping for the current layout if needed.
-            FixSize('#game-name');
-            // fixPronounWrapping(currentLayout.value);
+            for (let element in resizeElementList) {
+                resizeObserver.observe(resizeElementList[element]);
+            }
         }
     }
 });

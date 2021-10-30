@@ -3,9 +3,15 @@
     src: url('../fonts/Consolas.otf');
 }
 
+@font-face {
+    font-family: "Bebas Kai";
+    src: url('../fonts/BebasKai.otf');
+}
+
 /* Common definitions for all layouts. */
 body {
-    font-family: "Consolas", sans-serif;
+    font-family: "Bebas Kai", "Consolas", sans-serif;
+    letter-spacing: 0.1em;
     margin: 0;
     padding: 0;
     width: 1920px;

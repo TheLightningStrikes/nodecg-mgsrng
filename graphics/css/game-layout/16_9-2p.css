@@ -33,13 +33,13 @@
 }
 
 #timer {
-    width: 280px;
+    width: 350px;
     height: 155px;
     line-height: 155px;
     bottom: 155px;
     right: 0;
     font-size: 50px;
-    padding-left: 70px;
+    text-align: center;
     background-color: var(--timer-background-alt);
     color: var(--timer-color-alt);
 }
@@ -67,14 +67,19 @@
 
 .game-detail-label {
     color: var(--timer-color);
-    width: 150px;
+    width: 134px;
     padding-left: 25px;
     padding-bottom: 5px;
 }
 
 .game-detail {
     color: var(--text-color-alt);
-    padding-left: 15px;
+    width: 200px;
+    display: inline-block;
+}
+
+.game-detail-label#commentators-label {
+    width: 105px;
 }
 
 #category-container {
@@ -84,6 +89,11 @@
 #platform-container {
     top: 220px;
 }
+
+#category, #platform {
+    width: 440px;
+}
+
 
 #estimate-container {
     top: 160px;

@@ -43,12 +43,12 @@
 }
 
 #timer {
-    width: 235px;
+    width: 215px;
     height: 80px;
     line-height: 80px;
     top: 123px;
     right: 55px;
-    padding-left: 240px;
+    padding-left: 260px;
     font-size: 50px;
     color: var(--timer-color-alt);
     background-color: var(--timer-background-alt);
@@ -70,13 +70,15 @@
 
 .game-detail-label {
     color: var(--timer-color);
-    width: 150px;
+    width: 125px;
     padding-left: 75px;
     padding-bottom: 5px;
 }
 
 .game-detail {
     color: var(--text-color-alt);
+    width: 470px;
+    display: inline-block;
 }
 
 #game-name {
@@ -103,7 +105,7 @@
     font-size: 46px;
     height: 50px;
     line-height: 50px;
-    padding-left: 10px;
+    text-align: center;
 }
 
 #pronouns1 {

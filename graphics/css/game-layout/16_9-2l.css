@@ -34,13 +34,13 @@
 }
 
 #timer {
-    width: 280px;
+    width: 350px;
     height: 155px;
     line-height: 155px;
     bottom: 0px;
+    text-align: center;
     right: 0;
     font-size: 50px;
-    padding-left: 70px;
     background-color: rgba(47,47,47,0.5);
     color: var(--timer-color-alt);
 }

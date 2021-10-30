@@ -1,3 +1,7 @@
+#category, #platform {
+    width: 440px;
+}
+
 #charity-logo-container {
     display: block;
     width: 495px;
@@ -23,20 +27,19 @@
 }
 
 #timer {
-    width: 280px;
+    width: 350px;
     height: 130px;
     line-height: 130px;
     bottom: 130px;
     right: 0;
     font-size: 60px;
-    padding-left: 70px;
     background-color: var(--timer-background-alt);
     color: var(--timer-color-alt);
 }
 
 #game-details {
     bottom: 0;
-    width: 1920px;
+    width: 1570px;
     height: 260px;
     background-color: var(--text-background-alt-transparent);
     z-index: -1;
@@ -44,9 +47,14 @@
 
 #game-name {
     color: var(--timer-color);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#title {
+    font-size: 95px;
     height: 130px;
     line-height: 130px;
-    font-size: 95px;
     padding-left: 20px;
 }
 
@@ -57,18 +65,23 @@
 
 .game-detail-label {
     color: var(--timer-color);
-    width: 150px;
+    width: 134px;
     padding-left: 25px;
     padding-bottom: 5px;
 }
 
+.game-detail-label#commentators-label {
+    width: 105px;
+}
+
 .game-detail {
     color: var(--text-color-alt);
-    padding-left: 15px;
+    width: 250px;
+    display: inline-block;
 }
 
 #category-container {
-    top: 140px;
+    top: 130px;
 }
 
 #platform-container {
@@ -76,7 +89,7 @@
 }
 
 #estimate-container {
-    top: 140px;
+    top: 130px;
     left: 600px;
 }
 
@@ -86,17 +99,16 @@
 }
 
 #commentators-container {
-    top: 140px;
+    top: 130px;
     left: 1000px;
 }
 
 #commentators {
-    width: 380px;
+    width: 420px;
 }
 
 .runner-details {
     width: 450px;
-    text-align: center;
 }
 
 .runner-name {
