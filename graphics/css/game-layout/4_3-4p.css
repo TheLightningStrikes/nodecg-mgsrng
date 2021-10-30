@@ -33,12 +33,12 @@
 }
 
 #timer {
-    width: 235px;
+    width: 325px;
     height: 80px;
     line-height: 80px;
     top: 123px;
     left: 857px;
-    padding-left: 50px;
+    text-align: center;
     font-size: 50px;
     color: var(--timer-color-alt);
     background-color: var(--timer-background-alt);
@@ -60,14 +60,14 @@
 
 .game-detail-label {
     color: var(--timer-color);
-    width: 150px;
+    width: 125px;
     padding-left: 25px;
     padding-bottom: 5px;
 }
 
 .game-detail {
     color: var(--text-color-alt);
-    width: 300px;
+    width: 320px;
 }
 
 #game-name {

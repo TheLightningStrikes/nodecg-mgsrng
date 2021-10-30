@@ -33,12 +33,11 @@
 }
 
 #timer {
-    width: 235px;
+    width: 325px;
     height: 80px;
     line-height: 80px;
     top: 123px;
     left: 857px;
-    padding-left: 90px;
     font-size: 50px;
     color: var(--timer-color-alt);
     background-color: var(--timer-background-alt);

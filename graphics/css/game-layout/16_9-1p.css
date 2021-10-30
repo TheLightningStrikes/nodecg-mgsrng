@@ -39,12 +39,14 @@
 #game-name {
     color: var(--timer-color);
     font-size: 60px;
+    width: 720px;
 }
 
 .game-detail-container {
     display: inline-block;
     min-width: 80px;
     padding-right: 20px;
+    margin-top: -200px;
 }
 
 .game-detail-label {
@@ -57,7 +59,7 @@
     width: 700px;
     bottom: 0;
     right: 205px;
-    text-align: right;
+    text-align: center;
 }
 
 #runner-name1 {
@@ -65,20 +67,16 @@
     color: var(--timer-color);
     background-color: transparent;
     font-size: 70px;
-    width: 100%;
-    right: 10px;
-    top: 20px;
-    text-align: right;
+    margin-top: 8px;
 }
 
 #pronouns1 {
     position: absolute;
-    color: var(--text-color);
+    color: var(--timer-color);
     background-color: transparent;
     font-size: 30px;
     width: 100%;
-    right: 100px;
-    top: 10px;
+    text-align: center;
 }
 
 #game-feed1 {

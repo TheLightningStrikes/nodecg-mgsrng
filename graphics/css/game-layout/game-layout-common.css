@@ -65,6 +65,12 @@ body {
     position: absolute;
     background-color: var(--sidebar-background);
     color: var(--timer-color);
+    text-align: center;
+}
+
+#title {
+    white-space: nowrap;
+    display: inline-block;
 }
 
 #game-details {
@@ -78,20 +84,25 @@ body {
     vertical-align: top;
 }
 
+.game-detail > span {
+    display: inline-block;
+}
+
 .runner-details {
     position: absolute;
     /*Hide runner details by default, let individual layouts control which feeds are visible.*/
     display: none;
+    background-color: var(--header-background);
+    text-align: center;
 }
 
 .runner-name {
     color: var(--timer-color);
-    background-color: var(--header-background);
+    display: inline-block;
 }
 
 .pronouns {
     color: var(--timer-color);
-    background-color: var(--header-background);
     word-wrap: break-word;
 }
 
