@@ -45,7 +45,7 @@ $(() => {
 		if (oldVal) $('#timer').toggleClass('timer_'+oldVal.state, false);
 		$('#timer').toggleClass('timer_'+newVal.state, true);
 		
-		$('#timer').html(time);
+		$('#timer').text(time);
 		//$('#timer').lettering(); // Makes each character into a <span>.
 		currentTime = time;
 	}
@@ -59,12 +59,12 @@ $(() => {
 			var container = finishTimes.eq(index);
 
 			if (newVal.teamFinishTimes[team.id] && (!oldVal || !oldVal.teamFinishTimes[team.id])) {
-				$(container).html(newVal.teamFinishTimes[team.id].time);
-				$(container).css('display', 'flex');
+				$(container).text(newVal.teamFinishTimes[team.id].time);
+				$(container).css('display', 'inline');
 			}
 
 			else if (oldVal && oldVal.teamFinishTimes[team.id] && !newVal.teamFinishTimes[team.id]) {
-				$(container).html('');
+				$(container).text('');
 				$(container).hide();
 			}
 		});

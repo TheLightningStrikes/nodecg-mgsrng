@@ -26,6 +26,10 @@
     padding-left: 10px;
 }
 
+.finish-time {
+    opacity: 0;
+}
+
 #game-details {
     width: 1465px;
     height: 125px;
