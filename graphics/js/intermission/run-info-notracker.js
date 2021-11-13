@@ -228,10 +228,12 @@ $(() => {
         let nextRuns = getNextRuns(currentRun, numUpcoming);
 
         let comingUpGame = $('.coming-up-name');
+        let comingUpCategory = $('.coming-up-category');
         let comingUpRunner = $('.coming-up-runner');
 
         // Next up game.
         comingUpGame.html(currentRun.game);
+        comingUpCategory.html(currentRun.category);
         comingUpRunner.html(getNamesForRun(runDataActiveRun.value).join(', '));
 
         // On deck games.
@@ -239,8 +241,10 @@ $(() => {
         for (let run of nextRuns) {
             i += 1;
             let onDeckGame = $(".on-deck-name" + i);
+            let onDeckCategory = $(".on-deck-category" + i);
             let onDeckRunner = $(".on-deck-runner" + i);
             onDeckGame.html(run.game).show();
+            onDeckCategory.html(run.category).show();
             onDeckRunner.html(getNamesForRun(run).join(', ')).show();
         }
 
