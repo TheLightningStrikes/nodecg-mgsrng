@@ -44,6 +44,10 @@
     background-color: var(--timer-background-alt);
 }
 
+.finish-time {
+    opacity: 0;
+}
+
 #game-details {
     top: 0;
     right: 0;
