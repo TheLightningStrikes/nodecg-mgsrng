@@ -79,27 +79,35 @@ $(() => {
 
     function loadOffline(){
         let comingUpGame = $('.coming-up-name');
+        let comingUpCategory = $('.coming-up-category');
         let comingUpRunner = $('.coming-up-runner');
 
         comingUpGame.html("The World Ends With You");
+        comingUpCategory.html("A category for the game");
         comingUpRunner.html("Protomagicalgirl & Witch's Hex");
 
         let onDeckGame1 = $(".on-deck-name1");
+        let onDeckCategory1 = $(".on-deck-category1");
         let onDeckRunner1 = $(".on-deck-runner1");
 
         let onDeckGame2 = $(".on-deck-name2");
+        let onDeckCategory2 = $(".on-deck-category2");
         let onDeckRunner2 = $(".on-deck-runner2");
 
         let onDeckGame3 = $(".on-deck-name3");
+        let onDeckCategory3 = $(".on-deck-category3");
         let onDeckRunner3 = $(".on-deck-runner3");
 
         onDeckGame1.text("Quadrilateral Cowboy");
+        onDeckCategory1.text("Another category");
         onDeckRunner1.text("The Runner");
 
         onDeckGame2.text("SMB2: Return 2 Subcon");
+        onDeckCategory2.text("Yet another category");
         onDeckRunner2.text("GRANDPOOBEAR");
 
         onDeckGame3.text("QUICKIE WORLD");
+        onDeckCategory3.text("The last category");
         onDeckRunner3.text("MEGMACATTACK");
 
         let incentiveGame1 = $(".incentive-game1");
@@ -251,6 +259,7 @@ $(() => {
         // Hide extra on deck games we don't need.
         for (let j = i + 1; j <= numUpcoming; j++) {
             $(".on-deck-name" + j).hide();
+            $(".on-deck-category" + j).hide();
             $(".on-deck-runner" + j).hide();
         }
     }

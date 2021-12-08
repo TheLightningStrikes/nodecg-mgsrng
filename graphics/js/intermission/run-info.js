@@ -297,6 +297,7 @@ $(() => {
         // Hide extra on deck games we don't need.
         for (let j = i + 1; j <= numUpcoming; j++) {
             $(".on-deck-name" + j).hide();
+            $(".on-deck-category" + j).hide();
             $(".on-deck-runner" + j).hide();
         }
     }
