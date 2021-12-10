@@ -17,9 +17,9 @@ $(() => {
         if (newVal) {
             for (let element in resizeElementList) {
                 resizeObserver.unobserve(resizeElementList[element]);
-                resizeElementList = [];
-                loadFromSpeedControl();
             }
+            resizeElementList = [];
+            loadFromSpeedControl();
         }
     });
 
