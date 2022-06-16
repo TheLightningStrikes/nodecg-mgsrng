@@ -15,6 +15,11 @@
     ],
     "graphics": [
       {
+        "file": "interview.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
         "file": "game-layout.html",
         "width": 1920,
         "height": 1080

@@ -8,6 +8,11 @@
     src: url('../fonts/BebasKai.otf');
 }
 
+@font-face {
+    font-family: "Digital Serial";
+    src: url('../fonts/digital-serial.ttf');
+}
+
 /* Common definitions for all layouts. */
 body {
     font-family: "Bebas Kai", "Consolas", sans-serif;

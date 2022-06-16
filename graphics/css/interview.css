@@ -1,0 +1,119 @@
+div {
+    box-sizing: border-box;
+    color: white;
+}
+
+html {
+    background: url("../img/interview_layout_no_boxes.png");
+    height: 1080px;
+    width: 1920px;
+}
+
+body {
+    letter-spacing: 0.12em !important;
+}
+
+#runner-details1 {
+    position: absolute;
+    top: 683px;
+    left: 23px;
+    width: 520px;
+    height: 93px;
+}
+
+#runner-name1, #runner-name2 {
+    font-size: 32pt;
+    padding-left: 76px;
+    padding-top: 4px;
+}
+
+#runner-details2 {
+    position: absolute;
+    top: 683px;
+    left: 971px;
+    width: 520px;
+    height: 93px;
+}
+
+#pronouns1, #pronouns2 {
+    padding-left: 76px;
+    font-size: 22pt;
+    top: -6px;
+    position: relative;
+    color: #68ADA6;
+}
+
+.coming-up-info {
+    height: 190px;
+    width: 419px;
+    left: 319px;
+    top: 855px;
+    padding: 3px 16px 19px;
+    position: absolute;
+    border: 4px #39ffc6 solid;
+    border-radius: 20px;
+    display: block;
+    box-shadow: 0 0 10px 0 #39ffc6,
+    inset 0 0 10px 0 #39ffc6;
+}
+
+.coming-up-info > div:first-child, .on-deck-info-wrapper > div:first-child {
+    color: #39ffc6;
+    font-family: "Digital Serial", serif;
+    letter-spacing: normal;
+}
+
+.coming-up-info > div:first-child {
+    font-size: 27pt;
+    margin-bottom: 5px;
+}
+
+.on-deck-info-wrapper > div:first-child {
+    font-size: 20pt;
+}
+
+.coming-up-divider {
+    border: 1.8px #39ffc6 solid;
+    box-shadow: 0 0 10px 1px #39ffc6;
+    position: relative;
+    left: -1px;
+    margin-bottom: 14px;
+}
+.on-deck-info-wrapper {
+    width: 1136px;
+    height: 189px;
+    top: 855px;
+    left: 754px;
+    position: absolute;
+}
+
+.on-deck-title {
+    margin: 15px 0 8px 15px;
+}
+
+.on-deck-info {
+    width: 368px;
+    height: 135px;
+    padding: 14px 17px 19px;
+    float: left;
+    border: 4px #39ffc6 solid;
+    border-radius: 20px;
+    display: block;
+    box-shadow: 0 0 10px 0 #39ffc6,
+    inset 0 0 10px 0 #39ffc6;
+}
+
+.on-deck-info2, .on-deck-info3 {
+    margin-left: 16px;
+}
+
+.coming-up-name, .coming-up-runner, .coming-up-category, .on-deck-info > div {
+    font-size: 20pt;
+}
+
+.mgsr-speedy-logo {
+    top: 864px;
+    left: 16px;
+    position: absolute;
+    width: 262px;
+}
