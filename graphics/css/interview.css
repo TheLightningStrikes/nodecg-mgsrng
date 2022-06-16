@@ -65,7 +65,7 @@ body {
 
 .coming-up-info > div:first-child {
     font-size: 27pt;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
 .on-deck-info-wrapper > div:first-child {
@@ -73,7 +73,7 @@ body {
 }
 
 .coming-up-divider {
-    border: 1.8px #39ffc6 solid;
+    border-top: 3px #39ffc6 solid;
     box-shadow: 0 0 10px 1px #39ffc6;
     position: relative;
     left: -1px;
@@ -88,7 +88,7 @@ body {
 }
 
 .on-deck-title {
-    margin: 15px 0 8px 15px;
+    margin: 16px 0 8px 15px;
 }
 
 .on-deck-info {
