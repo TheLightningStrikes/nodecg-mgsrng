@@ -64,10 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
             comingUpGame.html(nextRuns[0].game);
             comingUpCategory.empty();
             comingUpCategory.html(nextRuns[0].category);
-            comingUpInfo.show();
+            comingUpInfo.css("opacity", 1);
 
             if (nextRuns.length > 1) {
-                $("#on-deck-info-wrapper").show();
+                $("#on-deck-info-wrapper").css("opacity", 1);
             }
 
             // On deck games.
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 onDeckGame.html(run.game);
                 onDeckCategory.empty();
                 onDeckCategory.html(run.category);
-                onDeckInfo.show();
+                onDeckInfo.css("opacity", 1);
             }
         }
     }
@@ -89,18 +89,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (numOnDeck >= 2) {
             for (let i = 1; i < (numUpcoming-numOnDeck)+1; i++) {
                 let onDeckElement = document.getElementById("on-deck-info" + (numUpcoming-i));
-                onDeckElement.style.display = "none";
+                onDeckElement.style.opacity = "0";
             }
         }
 
         if (numOnDeck <= 1) {
             let onDeckElement = document.getElementById("on-deck-info-wrapper" );
-            onDeckElement.style.display = "none";
+            onDeckElement.style.opacity = "0";
         }
 
         if (numOnDeck === 0) {
             let comingUpElement = document.getElementById("coming-up-info" );
-            comingUpElement.style.display = "none";
+            comingUpElement.style.opacity = "0";
         }
     }
 
@@ -114,13 +114,37 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let player of team.players) {
                 let name = document.getElementById("runner-name" + i);
                 let pronouns = document.getElementById("pronouns" + i);
+                name.style.opacity = "0";
+                pronouns.style.opacity = "0";
 
                 if (name === null) {
+                    name.textContent = "";
+                    pronouns.textContent = "";
                     break;
                 }
-                name.textContent = player.name;
-                pronouns.textContent = player.pronouns;
+
+                setTimeout(() => {
+                        name.textContent = player.name;
+                        pronouns.textContent = player.pronouns;
+                        name.style.opacity = "1";
+                        pronouns.style.opacity = "1";
+                    }, 1000);
                 i++;
+            }
+        }
+
+        if (i <= 2) {
+            for (let j = 2; j >= i; j--) {
+                let name = document.getElementById("runner-name" + j);
+                let pronouns = document.getElementById("pronouns" + j);
+                name.style.opacity = "0";
+                pronouns.style.opacity = "0";
+                setTimeout(() => {
+                    name.textContent = "";
+                    pronouns.textContent = "";
+                    name.style.opacity = "1";
+                    pronouns.style.opacity = "1";
+                }, 1000);
             }
         }
     }

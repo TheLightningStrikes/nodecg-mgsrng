@@ -4,13 +4,15 @@ div {
 }
 
 html {
-    background: url("../img/interview_layout_no_boxes.png");
+    background: #052524;
     height: 1080px;
     width: 1920px;
 }
 
 body {
+    background: url("../img/interview/interview_layout_transparent_lines.png");
     letter-spacing: 0.12em !important;
+    overflow: hidden;
 }
 
 #runner-details1 {
@@ -25,6 +27,7 @@ body {
     font-size: 32pt;
     padding-left: 76px;
     padding-top: 4px;
+    transition: ease-in-out opacity 1s;
 }
 
 #runner-details2 {
@@ -41,6 +44,7 @@ body {
     top: -6px;
     position: relative;
     color: #68ADA6;
+    transition: ease-in-out opacity 1s;
 }
 
 .coming-up-info {
@@ -55,6 +59,7 @@ body {
     display: block;
     box-shadow: 0 0 10px 0 #39ffc6,
     inset 0 0 10px 0 #39ffc6;
+    transition: ease-in-out opacity 1s;
 }
 
 .coming-up-info > div:first-child, .on-deck-info-wrapper > div:first-child {
@@ -85,6 +90,7 @@ body {
     top: 855px;
     left: 754px;
     position: absolute;
+    transition: ease-in-out opacity 1s;
 }
 
 .on-deck-title {
@@ -99,8 +105,10 @@ body {
     border: 4px #39ffc6 solid;
     border-radius: 20px;
     display: block;
+    opacity: 1;
     box-shadow: 0 0 10px 0 #39ffc6,
     inset 0 0 10px 0 #39ffc6;
+    transition: ease-in-out opacity 1s;
 }
 
 .on-deck-info2, .on-deck-info3 {
@@ -116,4 +124,147 @@ body {
     left: 16px;
     position: absolute;
     width: 262px;
+}
+
+.pulse-wrapper.slide-right {
+    animation: linear slideRight infinite 15s;
+}
+
+.pulse-wrapper.slide-left {
+    animation: linear slideLeft infinite 15s;
+}
+
+.pulse {
+    position: absolute;
+    height: 2px;
+    width: 380px;
+    box-shadow:0 0 60px 50px rgba(57, 255, 198, 0.2),
+    inset 0 0 3px 1px rgba(57, 255, 198, 0.2);
+    z-index: -5;
+    clip-path: inset(0px -85px 0px -85px);
+}
+
+.slide-right .pulse > div {
+    animation: reverse linear slideRight infinite 15s;
+}
+
+.slide-left .pulse > div {
+    animation: reverse linear slideLeft infinite 15s;
+}
+
+.pulse > div {
+    height: 20px;
+    width: 20px;
+    z-index: -2;
+    position: absolute;
+    opacity: 50%;
+    box-shadow:0 0 50px 80px #39ffc6, inset 0 0 3px 20px #39ffc6;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+}
+
+.pulse1 {
+    top: 35px;
+    left: 120px;
+}
+
+.pulse1 > div {
+    left: 2120px;
+}
+
+.pulse2 {
+    top: 110px;
+    left: 1200px;
+}
+
+.pulse3 {
+    top: 785px;
+    left: 620px;
+}
+
+.pulse4 {
+    top: 859px;
+    left: 1680px;
+}
+
+.pulse4 > div {
+    left: -2420px;
+}
+
+.pulse5 {
+    top: 35px;
+    left: 2040px;
+}
+
+.pulse5 > div {
+    left: 200px;
+}
+
+.pulse6 {
+    top: 110px;
+    left: -720px;
+}
+
+.pulse7 {
+    top: 785px;
+    /*left: -1300px;*/
+    left: 2540px;
+}
+
+.pulse8 {
+    top: 859px;
+    left: -240px;
+}
+
+.pulse8 > div {
+    left: -500px;
+}
+
+.pulse9 {
+    top: 35px;
+    left: 3960px;
+}
+
+.pulse9 > div {
+    left: -1720px;
+}
+
+.pulse10 {
+    top: 110px;
+    left: -2640px;
+}
+
+.pulse11 {
+    top: 785px;
+    /*left: -3220px;*/
+    left: 4460px;
+}
+
+.pulse12 {
+    top: 859px;
+    left: -2160px;
+}
+
+.pulse12 > div {
+    left: 1420px;
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translate3d(0,0,0);
+    }
+
+    100% {
+        transform: translate3d(1920px,0,0);
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translate3d(0,0,0);
+    }
+
+    100% {
+        transform: translate3d(-1920px,0,0);
+    }
 }
