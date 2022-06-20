@@ -4,7 +4,6 @@ div {
 }
 
 html {
-    background: #052524;
     height: 1080px;
     width: 1920px;
 }
@@ -161,6 +160,15 @@ body {
     box-shadow:0 0 50px 80px #39ffc6, inset 0 0 3px 20px #39ffc6;
     border-radius: 50%;
     mix-blend-mode: multiply;
+}
+
+.pulsebg {
+    background: #052524;
+    width: 1920px;
+    height: 2px;
+    position: absolute;
+    left: 0 !important;
+    z-index: -10;
 }
 
 .pulse1 {
