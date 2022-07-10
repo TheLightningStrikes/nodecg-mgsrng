@@ -5,6 +5,7 @@
     bottom: 0;
     left: 0;
     font-size: 60px;
+    display: none;
 }
 
 #donation-event-name {
@@ -30,11 +31,16 @@
     opacity: 0;
 }
 
+#finish-time1 {
+    top: -2000px;
+    left: -2000px;
+    position: absolute;
+}
+
 #game-details {
-    width: 1465px;
+    width: 1670px;
     height: 125px;
     bottom: 0;
-    left: 205px;
     font-size: 30px;
     padding-left: 45px;
     padding-top: 5px;
@@ -92,18 +98,6 @@
 }
 .game-detail {
     color: var(--text-color-alt);
-}
-
-#finish-time1 {
-    position: relative;
-    color: var(--timer-color);
-    background-color: var(--text-color);
-    font-size: 40px;
-    width: 190px;
-    left: 550px;
-    bottom: 155px;
-    text-align: right;
-    padding-left: 10px;
 }
 
 #commentators-label {
