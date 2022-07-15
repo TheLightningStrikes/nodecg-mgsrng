@@ -62,18 +62,20 @@ $(() => {
     }
 
     const resizeObserver = new ResizeObserver(entries => {
-        for (let entry of entries) {
-            const element = entry.target;
-            element.style.fontSize = "";
-            let fontSize = getComputedStyle(element).fontSize;
-            fontSize = fontSize.substring(0, fontSize.length-2);
+        setTimeout(() => {
+            for (let entry of entries) {
+                const element = entry.target;
+                element.style.fontSize = "";
+                let fontSize = getComputedStyle(element).fontSize;
+                fontSize = fontSize.substring(0, fontSize.length - 2);
 
-            let parentOuterWidth = element.parentElement.offsetWidth;
-            while (element.offsetWidth > parentOuterWidth) {
+                let parentOuterWidth = element.parentElement.offsetWidth;
+                while (element.offsetWidth > parentOuterWidth) {
 
-                element.style.fontSize = `${--fontSize}px`;
+                    element.style.fontSize = `${--fontSize}px`;
+                }
             }
-        }
+        }, 50);
     });
 
     function loadFromSpeedControl() {
